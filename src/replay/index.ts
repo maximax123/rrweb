@@ -613,7 +613,11 @@ export class Replayer {
         const stylesEls = head.getElementsByTagName('style');
         const styleSheet = stylesEls[stylesEls.length - 1].sheet as CSSStyleSheet;
         if (styleSheet) {
+          try {
           styleSheet.insertRule(d.rule, d.index);
+          } catch (e){
+            console.log(e)
+          }
         }
         break;
       }
